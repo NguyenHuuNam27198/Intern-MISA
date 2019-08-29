@@ -1,0 +1,117 @@
+﻿.menu {
+    height: calc(100vh - 55px);
+    width: 230px;
+    display: block;
+    position: absolute;
+    top: 55px;
+    left: 0px;
+    bottom: 0px;
+    background-color: #0973b9;
+}
+.menu-item {
+    display: flex;
+    height: 38px;
+    width: 100%;
+    align-items: center;
+    border-top: 0.5px solid #0681be;
+    border-bottom: 0.5px solid #036393;
+}
+    .menu-item:hover{
+        cursor:pointer;
+    }
+    .menu-item-focus {
+        background-color: #0199fc;
+    }
+.menu-item-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    background: url('/Images/iconMenu.png') no-repeat;
+}
+#icon-sumary {
+    background-position: -5px 0px;
+}
+#icon-report {
+    background-position: -2px -192px;
+}
+#icon-shopping {
+    background-position: -2px -376px;
+}
+#icon-repository {
+    background-position: -3px -39px;
+}
+#icon-fund-money {
+    background-position: -3px -80px;
+}
+#icon-fund-save {
+    background-image: url('/Images/icon-deposit.png');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-cost {
+    background-image: url('/Images/icon-cost.png');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-voucher {
+    background-position: -3px -119px;
+}
+#icon-menu {
+    background-image: url('/Images/vector-smart-object.png');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-category {
+    background-position: -1px -155px;
+}
+#icon-dispose-bill {
+    background-image: url('/Images/cancel-invoice.png');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-message-marketting {
+    background-image: url('/Images/SMS_Menu.svg');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-delivery-partner {
+    background-image: url('/Images/ic_GH.svg');
+    background-position: 0px 0px;
+    background-size: 24px 24px;
+}
+#icon-electric-bill {
+    background-image: url('/Images/ic_hoadon.png');
+    background-position: 0px 0px;
+    background-size:24px 24px;
+
+}
+#icon-system-setting {
+    background-position: -3px -233px;
+}
+#icon-helper {
+    background-position: 0px 0px;
+    background-image: url('/Images/iconHelp.png');
+    background-size: 24px 24px;
+}
+#icon-subcriber {
+    background-position: 1px 1px;
+    background-image: url('/Images/icon-subscriber.png');
+    background-size: 24px 24px;
+}
+#icon-5food {
+    background-position: 1px 1px;
+    background-image: url('/Images/5food.png');
+    background-size: 24px 24px;
+}
+.menu-item-text {
+    color: #fff;
+    margin-left: 8px;
+}
+.select-arrow {
+    height: 16px;
+    width: 16px;
+    background-image: url('/Images/iconMenu.png');
+    background-position: -6px -275px;
+    position: absolute;
+    right: 4px;
+}

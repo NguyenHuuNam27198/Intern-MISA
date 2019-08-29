@@ -1,0 +1,30 @@
+﻿@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('/Fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+body {
+    font-size:13px;
+    margin:0px;
+    padding:0px;
+    height:100vh;
+    font-family:'Roboto-Regular';
+
+}
+
+.content-box{
+    height:calc(100vh - 55px);
+    width:calc(100% - 230px);
+    position:absolute;
+    top:55px;
+    left:230px;
+    right:0px;
+    bottom:0px;
+    display:block;
+    background-color:#fff;
+}
+.tool-bar-icon {
+    width:16px;
+    height:16px;
+    background: url('/Images/IconSprite.png') no-repeat;
+}

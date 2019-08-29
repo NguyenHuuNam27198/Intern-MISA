@@ -1,0 +1,41 @@
+﻿button.ui-datepicker-trigger {
+    width: 16px;
+    height: 16px;
+    border: 0px;
+    position: absolute;
+    top: 92px;
+    left: 304px;
+    background: url('/Images/calendar-icon.png') no-repeat;
+    background-position: 2px 0px;
+    background-size: 16px 16px;
+}
+.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+    background-color: #247ba0;
+    border: 0px;
+    border-radius: 0px;
+}
+div#ui-datepicker-div {
+    padding: 0px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled {
+    background: #f6f6f6;
+    font-weight: normal;
+    color: #454545;
+    text-align: center;
+    border: 0px;
+    margin-top: 1px;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background: #247ba0;
+    color: #e8f1f5;
+    border-radius: 6px;
+}
+.ui-widget-header .ui-icon {
+    background: url('/Images/tool-sprites.png') no-repeat;
+}
+span.ui-icon.ui-icon-circle-triangle-e {
+    background-position: 0px -128px;
+}
+span.ui-icon.ui-icon-circle-triangle-w {
+    background-position: 0px -112px;
+}

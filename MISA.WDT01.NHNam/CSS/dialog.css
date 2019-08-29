@@ -1,0 +1,247 @@
+﻿
+
+#dialog {
+    padding: 8px !important;
+    border-left: 2px solid #0072bc;
+    border-right: 2px solid #0072bc;
+    border-bottom: 4px solid #0072bc;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.dialog-add.ui-draggable {
+    padding: 0px;
+}
+.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+    background-color: #0072bc;
+    border: 0px;
+    border-radius: 0px;
+    color: #ebe8ed;
+}
+span.ui-button-icon.ui-icon.ui-icon-closethick {
+    background: url('/Images/cancel.png') no-repeat;
+}
+button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close {
+    border-radius: 43%;
+}
+#dialog .short-row {
+    display: inline-block;
+    height: 24px;
+}
+#dialog .one-row{
+    width:653px;
+}
+#dialog .long-row {
+    width: 653px;
+    height: 24px;
+}
+#dialog .dialog-row {
+    margin-top: 2px;
+}
+#dialog .dialog-right-row {
+    margin-left: 13px;
+}
+#dialog .dialog-row-text {
+    display: inline-block;
+    width: 115px;
+}
+#dialog span.dialog-text-red {
+    color: #f01818;
+}
+#dialog .short-row input {
+    width: 184px;
+    height: 20px;
+    border: 1px solid #cdcdcd;
+    padding: 0px 0px 0px 4px;
+    margin: 1px 0px 0px 8px;
+}
+#dialog .long-row input {
+    width: 517px;
+    height: 20px;
+    border: 1px solid #cdcdcd;
+    padding: 0px 0px 0px 4px;
+    margin-left: 8px;
+    margin-top: 1px;
+}
+#dialog .area-row{
+    display:flex;
+}
+#dialog textarea {
+    width: 517px;
+    height: 43px;
+    margin-left: 12px;
+    margin-top: 1px;
+    border: 1px solid #cdcdcd;
+}
+.dialog-stopFollowing {
+    display: flex;
+    align-items: center;
+}
+#dialog input[type="checkbox"] {
+    margin-left: 127px;
+}
+#dialog .dialog-btn {
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    width: 653px;
+    height:26px;
+}
+    #dialog .dialog-btn .btn {
+        height: 25px;
+        border: 1px solid #cdcdcd;
+        background-color: #fff;
+        margin-right: 10px;
+        margin-top: 1px;
+        display: flex;
+        align-items: center;
+        padding: 0px;
+    }
+#dialog #helper-btn,#save-btn,#cancel-btn {
+    width: 86px;
+}
+    #dialog #helper-btn .text-icon {
+        background: url('/Images/icon-question.png') no-repeat;
+        background-size:16px 16px;
+    }
+#dialog #save-btn{
+    margin-left:237px;
+}
+    #dialog #save-btn .text-icon {
+        background: url('/Images/Save16.png') no-repeat;
+        background-size: 16px 16px;
+    }
+#dialog #save-add-btn {
+    width: 125px;
+}
+    #dialog #save-add-btn .text-icon {
+        background: url('/Images/SaveAdd16.png') no-repeat;
+        background-size: 16px 16px;
+    }
+#dialog #cancel-btn{
+    margin-right:0px !important;
+}
+    #dialog #cancel-btn .text-icon {
+        background: url('/Images/Disable16.png') no-repeat;
+        background-size: 16px 16px;
+    }
+#dialog .btn .text-icon {
+    width: 16px;
+    height: 16px;
+}
+#dialog #helper-btn .text-icon {
+    margin-left: 15px;
+}
+#dialog #helper-btn .text-btn {
+    margin-left: 8px;
+}
+#dialog #save-btn .text-icon {
+    margin-left: 15px;
+}
+
+#dialog #save-btn .text-btn {
+    margin-left: 8px;
+}
+#dialog #save-add-btn .text-icon {
+    margin-left: 8px;
+}
+
+#dialog #save-add-btn .text-btn {
+    margin-left: 14px;
+}
+#dialog #cancel-btn .text-icon {
+    margin-left: 8px;
+}
+
+#dialog #cancel-btn .text-btn {
+    margin-left: 8px;
+}
+
+.dialog-add .dialog-stopFollowing {
+    display: none;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.dialog-close-warning.ui-dialog-buttons.ui-draggable {
+    padding: 0px;
+}
+button.btn-warning.ui-button.ui-corner-all.ui-widget {
+    width: 70px;
+    border-radius: 0;
+}
+.ui-dialog .ui-dialog-buttonpane {
+    text-align: left;
+    background-image: none;
+    margin-top: .5em;
+    padding: .3em 1em .5em .4em;
+    border: 0px;
+}
+div#dialog-warning {
+    display: flex;
+    align-items: center;
+    
+}
+#dialog-warning .dialog-warning-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    background: url('/Images/icon-question.png') no-repeat;
+}
+#dialog-warning .dialog-warning-text {
+    display: inline-block;
+    width: 335px;
+    height: 50px;
+    margin-left: 16px;
+    padding-top: 8px;
+    box-sizing: border-box;
+}
+.ui-dialog .ui-dialog-content {
+    position: relative;
+    border: 0;
+    padding: .5em 1em;
+    background: none;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.dialog-update {
+    padding: 0px;
+}
+.ui-widget.ui-widget-content {
+    border-left: 1px solid #0072bc;
+    border-right: 1px solid #0072bc;
+    border-bottom: 4px solid #0072bc;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
+    padding: 0px;
+}
+#dialog .btn-dangerous-icon {
+    width: 16px;
+    height: 16px;
+    border: 0px;
+    display: inline-block;
+    margin-left: 0px;
+    background: url('/Images/IconSprite.png') no-repeat;
+    background-position:0px -1808px;
+    background-color:#fff;
+}
+.dangerous-input{
+    width:164px !important;
+    border:1px solid #ff0000 !important;
+}
+
+#dialog .message-box .message-icon {
+    width: 16px;
+    height: 16px;
+    background: url('/Images/IconSprite.png') no-repeat;
+    background-position: 0px -1808px;
+    margin-left:8px;
+}
+
+    #dialog #left-message-box {
+        width: 320px;
+    }
+#dialog .message-box {
+    width: 240px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    background-color: #eaf3fa;
+    border-radius: 4px;
+    position: absolute;
+    left: 345px;
+    top: 43px;
+}
