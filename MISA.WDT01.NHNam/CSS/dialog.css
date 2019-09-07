@@ -74,9 +74,12 @@ button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-
     display: flex;
     align-items: center;
 }
-#dialog input[type="checkbox"] {
-    margin-left: 127px;
-}
+    .dialog-stopFollowing:hover{
+        cursor:pointer;
+    }
+    #dialog input[type="checkbox"] {
+        margin-left: 127px;
+    }
 #dialog .dialog-btn {
     position: absolute;
     bottom: 8px;

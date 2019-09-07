@@ -4,12 +4,14 @@
         maxDate: "0D",
         showOn: "button"
     });
-    $('#dialog input[type="checkbox"]').click(function () {
-        if ($(this).prop("checked") == true) {
-            $(this).val("true");
+    $('#dialog .dialog-stopFollowing').click(function () {
+        if ($('#dialog input[type="checkbox"]').prop("checked") == true) {
+            $('#dialog input[type="checkbox"]').prop("checked", false);
+            $('#dialog input[type="checkbox"]').val("false");
         }
         else {
-            $(this).val("false");
+            $('#dialog input[type="checkbox"]').prop("checked", true);
+            $('#dialog input[type="checkbox"]').val("true");
         }
 
     });

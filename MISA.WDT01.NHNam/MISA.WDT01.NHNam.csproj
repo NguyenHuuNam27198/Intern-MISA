@@ -107,6 +107,7 @@
     <Content Include="Images\Edit16.png" />
     <Content Include="Images\EmployeeImage.png" />
     <Content Include="Images\excel_97_24.png" />
+    <Content Include="Images\giphy.gif" />
     <Content Include="Images\icon-cost.png" />
     <Content Include="Images\icon-deposit.png" />
     <Content Include="Images\icon-left-header.png" />
@@ -139,6 +140,7 @@
     <Content Include="Scripts\events.js" />
     <Content Include="Scripts\Libraries\jquery-3.4.1.min.js" />
     <Content Include="Scripts\Libraries\jquery-ui.js" />
+    <Content Include="Scripts\responsive.js" />
     <Content Include="Views\customer.html" />
     <Content Include="Web.config" />
   </ItemGroup>

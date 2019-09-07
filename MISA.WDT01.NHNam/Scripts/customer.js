@@ -6,8 +6,7 @@ class customer {
         this.HandleEvents();
         
     }
-    arrayGlobal = this.GetAllData().length;
-    isChanged = false;
+    //arrayGlobal = this.GetAllData().length;
     /**
      * Hàm xử lí các sự kiện 
      * Created by: Nguyễn Hữu Nam 25-08-2019
@@ -22,8 +21,6 @@ class customer {
         $(document).on('click', '.dialog-add #save-add-btn', { "method": "POST", "typeSave": "saveadd" }, this.SaveButton.bind(this));
         $(document).on('click', '.dialog-update #save-btn', { "method": "PUT", "typeSave": "save" }, this.SaveButton.bind(this));
         $(document).on('click', '.dialog-update #save-add-btn', { "method": "PUT", "typeSave": "saveadd" }, this.SaveButton.bind(this));
-        $(document).on('keyup', '#dialog input[type="text"],textarea', { "ischanged": "1" }, this.ChangeSignal.bind(this));
-        $(document).on('change', '#dialog input[type="checkbox"]', { "ischanged": "1" }, this.ChangeSignal.bind(this));
         $(document).on('click', '.dialog-add #cancel-btn', {"method":"POST"},this.CloseDialog.bind(this));
         $(document).on('click', '.dialog-update #cancel-btn', {"method":"PUT"},this.CloseDialog.bind(this));
         $(document).on('keyup', '.paging #current-page', this.GotoPage.bind(this));
@@ -36,18 +33,34 @@ class customer {
     }
 
     /**
-     * Hàm bắt sự kiện keyup,change thành tín hiệu thông báo thay đổi input
-     * Created by: Nguyễn Hữu Nam 27-08-2019
-     */
-    ChangeSignal(event) {
-        var me = this;
-        var _isChanged = event.data["ischanged"];
-        //var isChanged = arguments[0];
-        if (_isChanged == 1) {
-            me.isChanged = true;
+     * Hàm kiểm tra sự thay đổi dữ liệu khi đóng dialog
+     * Created by: Nguyễn Hữu Nam 07-09-2019
+     * */
+    isChanged() {
+        var typeDialog = arguments[0];
+        var changeFlag = false;
+        if (typeDialog == "POST") {
+            var dialogAddInputs = $('.dialog-add input,textarea');
+            $.each(dialogAddInputs, function (index, item) {
+                if (item.value != item.defaultValue) {
+                    changeFlag = true;
+                }
+            });
+            return changeFlag;
+        }
+        else {
+            var dialogUpdateInputs = $('.dialog-update input,textarea');
+            $.each(dialogUpdateInputs, function (index, item) {
+                debugger
+                if (item.value !== $(item).data("initial")) {
+                    changeFlag = true;
+                }
+            });
+            return changeFlag;
         }
     }
 
+    
     /**
      * Hàm thực hiện load lại dữ liệu khi thay đổi số lượng bản ghi
      * Created by: Nguyễn Hữu Nam 26-08-2019
@@ -103,15 +116,16 @@ class customer {
      * */
     CalculateTotalPage() {
         var pageSize = $('.paging #page-size').val();
+        var totalRecord = this.GetAllData().length;
         var totalPageMax;
-        if (parseInt(this.arrayGlobal) % parseInt(pageSize) == 0) {
-            totalPageMax = this.arrayGlobal / pageSize;
+        if (parseInt(totalRecord) % parseInt(pageSize) == 0) {
+            totalPageMax = totalRecord / pageSize;
         }
         else {
-            totalPageMax = parseInt(this.arrayGlobal / pageSize) + 1;
+            totalPageMax = parseInt(totalRecord / pageSize) + 1;
         }
 
-        return totalPageMax;
+        return [totalPageMax, totalRecord];
     }
 
     /**
@@ -266,7 +280,6 @@ class customer {
                 }
                 $('.tool-bar #btn-duplicate,#btn-update,#btn-delete').attr("disabled", true);
                 me.LoadData();
-                me.isChanged = false;
             },
             error: function (res) {
                 alert("Đã xảy ra lỗi. Mời bạn liên hệ MiSa để được hỗ trợ giải quyết");
@@ -376,8 +389,8 @@ class customer {
      * */
     CloseDialog(event) {
         var me = this;
-        var changeFlag = me.isChanged;
         var _method = event.data["method"];
+        var changeFlag = me.isChanged(_method);
         if (changeFlag) {
             var buttons = [
                 {
@@ -387,7 +400,6 @@ class customer {
                         var method = _method;
                         var typeSave = "save";
                         me.SaveEvents(method, typeSave);
-                        me.isChanged = false;
                         $('#dialog-warning').dialog("close");
                     }
                 },
@@ -397,7 +409,6 @@ class customer {
                     click: function () {
                         $('#dialog-warning').dialog("close");
                         $('#dialog').dialog("close");
-                        me.isChanged = false;
                     }
                 },
                 {
@@ -471,17 +482,14 @@ class customer {
                     else {
                         item.value = "";
                     }
-
+                    $(item).data("initial", (res.Data[item.getAttribute("name")] != null) ? (res.Data[item.getAttribute("name")] + ""):""  );
                 });
             },
             error: function (res) {
                 alert(res.Message);
             }
         })
-
-        //$('.dialog-update input[type="text"],textarea').keyup(function () {
-
-        //})
+        
     }
 
     /**
@@ -492,6 +500,7 @@ class customer {
         var emptys = $('#dialog input,textarea');
         $.each(emptys, function (index, item) {
             $(item).val(item.defaultValue);
+            $(item).data("initial", item.defaultValue);
             if ($(item).hasClass("dangerous-input")) {
                 $(item).removeClass("dangerous-input")
             }
@@ -525,14 +534,24 @@ class customer {
      * Hàm xử lí sự kiện khi click vào 1 row trang bảng dữ liệu
      * Created by: Nguyễn Hữu Nam 25-08-2019
      */
-    SelectRows(events) {
-        if ($(this).hasClass('rows-on-select')) {
-            $(this).removeClass('rows-on-select');
+    SelectRows(event) {
+        if (event.ctrlKey) {
+            if ($(this).hasClass('rows-on-select')) {
+                $(this).removeClass('rows-on-select');
+            }
+            else {
+                $(this).addClass('rows-on-select');
+            }
         }
         else {
-            $(this).addClass('rows-on-select');
+            if ($(this).hasClass('rows-on-select')) {
+                $(this).removeClass('rows-on-select');
+            }
+            else {
+                $('.tbody .tbody-row').removeClass("rows-on-select");
+                $(this).addClass('rows-on-select');
+            }
         }
-
         var rowsSelected = $('.rows-on-select');
         if (rowsSelected.length == 0) {
             $('#btn-duplicate,#btn-update,#btn-delete').prop("disabled", true);
@@ -597,12 +616,13 @@ class customer {
     LoadData() {
         $('.tbody').empty();
         var me = this;
-
-        var totalPage = me.CalculateTotalPage();
+        var totalPage = me.CalculateTotalPage()[0];
+        var totalRecord = me.CalculateTotalPage()[1];
         //Load data lên table
         var pageIndex = $('.paging #current-page').val();
+        var currentPage = (pageIndex > totalPage) ? totalPage : pageIndex;
         var pageSize = $('.paging #page-size').val();
-        var Data = me.GetData(pageIndex, pageSize);
+        var Data = me.GetData(currentPage, pageSize);
         var fieldNames = $('.thead div[field]');
         var cls = "text-align-left";
         
@@ -646,7 +666,10 @@ class customer {
         });
 
         //thiệt lập cho phân trang
+        $('.paging #current-page').val(currentPage);
         $('.paging #total-page').text("trên " + totalPage);
+        $('.paging #text-intro').text("Hiển thị " + ((currentPage - 1) * pageSize + 1) + " - "
+            + (((pageIndex * pageSize) > totalRecord) ? totalRecord : pageIndex * pageSize) + " trên " + totalRecord + " kết quả");
         if (pageIndex == 1) {
             $('.paging #first-page,#prev-page').prop("disabled", true);
             $('.paging #last-page,#next-page').prop("disabled", false);
