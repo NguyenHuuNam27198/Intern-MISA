@@ -6,7 +6,6 @@ class customer {
         this.HandleEvents();
         
     }
-    //arrayGlobal = this.GetAllData().length;
     /**
      * Hàm xử lí các sự kiện 
      * Created by: Nguyễn Hữu Nam 25-08-2019
@@ -95,7 +94,7 @@ class customer {
      * Created by: Nguyễn Hữu Nam 26-08-2019
      * */
     LastPageButton() {
-        var lastPage = this.CalculateTotalPage();
+        var lastPage = this.CalculateTotalPage()[0];
         $('.paging #current-page').val(lastPage);
         this.LoadData();
     }
@@ -119,7 +118,7 @@ class customer {
         var totalRecord = this.GetAllData().length;
         var totalPageMax;
         if (parseInt(totalRecord) % parseInt(pageSize) == 0) {
-            totalPageMax = totalRecord / pageSize;
+            totalPageMax = parseInt(totalRecord / pageSize);
         }
         else {
             totalPageMax = parseInt(totalRecord / pageSize) + 1;
